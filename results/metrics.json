@@ -1,0 +1,99 @@
+{
+  "device_used_for_training": "cuda",
+  "model": "yolo11n.pt",
+  "epochs": 60,
+  "imgsz": 640,
+  "batch": 16,
+  "roboflow": {
+    "workspace": "yolo-wfx0p",
+    "project": "pcb-defect-uqoat",
+    "version": 2
+  },
+  "class_names": [
+    "missing_hole",
+    "mouse_bite",
+    "open_circuit",
+    "short",
+    "spur",
+    "spurious_copper"
+  ],
+  "finetuned": {
+    "overall": {
+      "precision": 0.9343141164614035,
+      "recall": 0.8752778184699792,
+      "mAP50": 0.9224147041198103,
+      "mAP50-95": 0.457520635393422
+    },
+    "per_class": [
+      {
+        "class": "missing_hole",
+        "precision": 0.9722285549740128,
+        "recall": 0.9791666666666666,
+        "AP50": 0.9772382380777918,
+        "AP50-95": 0.5803870144900856
+      },
+      {
+        "class": "mouse_bite",
+        "precision": 0.9010641207899255,
+        "recall": 0.8585858585858586,
+        "AP50": 0.9014440690483495,
+        "AP50-95": 0.42927961217920957
+      },
+      {
+        "class": "open_circuit",
+        "precision": 0.9286893268063775,
+        "recall": 0.8709677419354839,
+        "AP50": 0.9320738295955213,
+        "AP50-95": 0.4383427002884992
+      },
+      {
+        "class": "spur",
+        "precision": 0.9683451717923572,
+        "recall": 0.7872340425531915,
+        "AP50": 0.8719794731075569,
+        "AP50-95": 0.3894853708201103
+      },
+      {
+        "class": "spurious_copper",
+        "precision": 0.9012434079443445,
+        "recall": 0.8804347826086957,
+        "AP50": 0.9293379107698317,
+        "AP50-95": 0.4501084791892052
+      }
+    ]
+  },
+  "baseline_coco_zero_shot": {
+    "model": "yolo11n.pt pretrained on COCO, zero-shot",
+    "n_test_images": 115,
+    "images_with_a_relevant_class_predicted": 0,
+    "recall": 0.0,
+    "precision": NaN,
+    "note": "COCO has no 'missing_hole', 'short', etc. among its 80 classes, so this model cannot score a true positive on this task by construction. Confirmed empirically above rather than assumed."
+  },
+  "baseline_trivial": {
+    "model": "trivial baseline: always predicts 'no defect' (always pass)",
+    "recall": 0.0,
+    "fpr": 0.0,
+    "n_test_images": 115,
+    "n_positive": 115,
+    "n_negative": 0
+  },
+  "cost_assumptions": {
+    "cost_fn": 120.0,
+    "cost_fp": 5.0,
+    "cost_tp": 15.0,
+    "cost_tn": 0.0,
+    "cost_review_defective": 20.0,
+    "cost_review_good": 5.0,
+    "base_rate": 0.03
+  },
+  "best_single_threshold": {
+    "threshold": 0.6,
+    "recall": 0.9217391304347826,
+    "fpr_proxy": 0.02608695652173913,
+    "cost_per_1000": 823.0434782608694
+  },
+  "training_seconds": 1276.263631105423,
+  "n_negative_boards_in_test_split": 0,
+  "cost_sweep_method": "proxy-aware: fpr estimated from detection-level false-alarm rate (detections_log.csv), since the test split has 0 genuinely clean boards"
+}

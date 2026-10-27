@@ -1,0 +1,60 @@
+{
+  "classes": [
+    "missing_hole",
+    "mouse_bite",
+    "open_circuit",
+    "short",
+    "spur",
+    "spurious_copper"
+  ],
+  "splits": {
+    "train": {
+      "n_images": 1389,
+      "n_images_with_object": 1389,
+      "n_images_without_object": 0,
+      "instances_per_class": {
+        "missing_hole": 911,
+        "mouse_bite": 883,
+        "open_circuit": 880,
+        "short": 1471,
+        "spur": 883,
+        "spurious_copper": 926
+      },
+      "total_instances": 5954,
+      "mean_box_area_fraction": 0.0011192132644217646,
+      "median_box_area_fraction": 0.0009228515625000001
+    },
+    "val": {
+      "n_images": 115,
+      "n_images_with_object": 115,
+      "n_images_without_object": 0,
+      "instances_per_class": {
+        "missing_hole": 97,
+        "mouse_bite": 98,
+        "open_circuit": 95,
+        "short": 0,
+        "spur": 99,
+        "spurious_copper": 102
+      },
+      "total_instances": 491,
+      "mean_box_area_fraction": 0.0007728915399058046,
+      "median_box_area_fraction": 0.00068115234375
+    },
+    "test": {
+      "n_images": 115,
+      "n_images_with_object": 115,
+      "n_images_without_object": 0,
+      "instances_per_class": {
+        "missing_hole": 96,
+        "mouse_bite": 99,
+        "open_circuit": 93,
+        "short": 0,
+        "spur": 94,
+        "spurious_copper": 92
+      },
+      "total_instances": 474,
+      "mean_box_area_fraction": 0.000745879225590058,
+      "median_box_area_fraction": 0.0006652832031250001
+    }
+  }
+}
